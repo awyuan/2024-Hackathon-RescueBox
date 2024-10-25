@@ -1,0 +1,18 @@
+[
+    (
+        [
+            [np.int32(907), np.int32(983)],
+            [np.int32(1983), np.int32(983)],
+            [np.int32(1983), np.int32(1111)],
+            [np.int32(907), np.int32(1111)]
+        ],
+        'Hospital Administration', np.float64(0.8418154338258882)
+    ),
+    (
+        [
+            [np.int32(2117), np.int32(1017)],
+            [np.int32(2685), np.int32(1017)],
+            [np.int32(2685), np.int32(1117)],
+            [np.int32(2117), np.int32(1117)]
+        ],
+        'Palouse Foot', np.float64(0.7957955604990502)), ([[np.int32(2807), np.int32(1022)], [np.int32(3077), np.int32(1022)], [np.int32(3077), np.int32(1118)], [np.int32(2807), np.int32(1118)]], 'Ankle', np.float64(0.9529349697671007)), ([[np.int32(892), np.int32(1086)], [np.int32(1606), np.int32(1086)], [np.int32(1606), np.int32(1202)], [np.int32(892), np.int32(1202)]], 'Palouse ENT &', np.float64(0.8921428929817257)), ([[np.int32(1609), np.int32(1087)], [np.int32(2067), np.int32(1087)], [np.int32(2067), np.int32(1238)], [np.int32(1609), np.int32(1238)]], 'Audiology', np.float64(0.8541108793071261)), ([[np.int32(2117), np.int32(1094)], [np.int32(2856), np.int32(1094)], [np.int32(2856), np.int32(1229)], [np.int32(2117), np.int32(1229)]], 'Palouse Urology', np.float64(0.9921750045349981)), ([[np.int32(881), np.int32(1187)], [np.int32(1923), np.int32(1187)], [np.int32(1923), np.int32(1325)], [np.int32(881), np.int32(1325)]], 'Total Health Physician', np.float64(0.8822370282184795)), ([[np.int32(2123), np.int32(1210)], [np.int32(2858), np.int32(1210)], [np.int32(2858), np.int32(1313)], [np.int32(2123), np.int32(1313)]], 'Palouse Medical', np.float64(0.8719056333618751)), ([[np.int32(993), np.int32(1267)], [np.int32(1312), np.int32(1267)], [np.int32(1312), np.int32(1393)], [np.int32(993), np.int32(1393)]], 'Group', np.float64(0.9999708915898061)), ([[np.int32(2121), np.int32(1318)], [np.int32(3024), np.int32(1318)], [np.int32(3024), np.int32(1440)], [np.int32(2121), np.int32(1440)]], 'Pullman ReadyCare', np.float64(0.9999742386106506)), ([[np.int32(842), np.int32(1368)], [np.int32(1622), np.int32(1368)], [np.int32(1622), np.int32(1494)], [np.int32(842), np.int32(1494)]], 'Specialty Clinic', np.float64(0.7256173563009217)), ([[np.int32(1765), np.int32(2590)], [np.int32(1803), np.int32(2590)], [np.int32(1803), np.int32(2616)], [np.int32(1765), np.int32(2616)]], 'EM', np.float64(0.12068833135289792))]
