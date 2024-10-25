@@ -10,6 +10,10 @@ import argparse
 import csv
 
 def main():
+
+    # Debug flag
+    debug = args.debug
+
     # Storage Paths
     save_path = 'tool-suite/text_scraper/downloads/'
 
@@ -20,10 +24,12 @@ def main():
     reader = easyocr.Reader(lang_vals, model_storage_directory=f'{save_path}/models', user_network_directory=f'{save_path}/user_networks')
 
     # Get list of images in input directory
-    images = [f for f in os.listdir(args.input_dir) if f.endswith('.jpg') or f.endswith('.jpeg') or f.endswith('.png')]
+    images = [f for f in os.listdir(args.input_dir) if f.endswith('.jpg') or f.endswith('.jpeg') or f.endswith('.JPG')]
 
     # Extract text from each image
     for image in images:
+        if debug:
+            print('Reading: ', image)
         # Load image
         img = Image.open(os.path.join(args.input_dir, image))
 
@@ -55,5 +61,6 @@ if __name__ == "__main__":
     parser.add_argument('output_dir', type=str, help='Directory to save extracted text to')
     parser.add_argument('--lang', type=str, help='Language(s) to extract text in. Pass in as a comma-separated string. Default is "en" for English. For the list of pairs that funciton, you may need to read easyocr.py source code.', default='en')
     parser.add_argument('--conf', type=float, help='Minimum confidence level for text extraction. Default is 0.5', default=0.5)
+    parser.add_argument('--debug', action='store_true', help='Print debug information')
     args = parser.parse_args()
     main()
