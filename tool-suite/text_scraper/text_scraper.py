@@ -6,8 +6,10 @@ import os
 import json
 from PIL import Image
 import easyocr
+import easyocr.utils as utils
 import argparse
 import csv
+from polyglot.text import Text
 
 def main():
 
@@ -35,12 +37,13 @@ def main():
 
         # Extract text
         text = reader.readtext(img)
-
+        # Filter out low confidence text:
+        text = [t for t in text if t[2] >= args.conf]
+        read_dir = 'rtl' if args.lang in ["ar","fa","ur","ug"] else 'ltr'
+        paragraphed_text = utils.get_paragraph(text, x_ths=0.1, y_ths=0.5, mode=read_dir)
         # Convert text into a list of dicts
-        output_list = []
-        for tuple in text:
-            if float(tuple[2]) < float(args.conf):
-                continue
+        scraped_texts = []
+        for tuple in paragraphed_text:
             text_dict = {}
             # convert coordinates to int values
             for i in range(4):
@@ -48,12 +51,31 @@ def main():
                 tuple[0][i][1] = int(tuple[0][i][1])
             text_dict['coordinates'] = tuple[0]
             text_dict['text'] = tuple[1]
-            text_dict['confidence'] = float(tuple[2])
-            output_list.append(text_dict)
+            # text_dict['confidence'] = float(tuple[2])
+            scraped_texts.append(text_dict)
 
-        # Save extracted text to output directory
-        with open(os.path.join(args.output_dir, image.split('.')[0] + '.txt'), 'w') as f:
-            f.write(json.dumps(output_list))
+        # # Save extracted text to output directory
+        # with open(os.path.join(args.output_dir, image.split('.')[0] + '.json'), 'w') as f:
+        #     f.write(json.dumps(output_list)) 
+        output_dicts = []
+        for row in scraped_texts:
+            raw_text = row["text"].strip()
+            if raw_text == "":
+                continue
+
+            text = Text(raw_text)
+            output_dict = {
+                "text": row["text"],
+                "lang": text.language.code,
+                "lang_name": text.language.name,
+            }
+            if text.language.code == "en":
+                    output_dict["entities"] = text.entities
+            output_dicts.append(output_dict)
+        with open(os.path.join(args.output_dir, image.split('.')[0] + '.json'), 'w') as f:
+            f.write(json.dumps(output_dicts))
+
+            
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Extract text from images in a given directory. Keywords: OCR, Text Extraction, TrOCR, Text Scraping, Scraping, Image Input')
