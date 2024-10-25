@@ -1,0 +1,15 @@
+It's a hackathon, no time..
+
+But here is the command we ran at the end to generate the outputs:
+```
+python3 tool-suite/text_scraper/text_scraper.py tool-suite/text_scraper/examples/inputs tool-suite/text_scraper/examples/word_detection_output --conf 0.7 --lang es
+```
+
+I use 'es' because that triggers latin model. If you have a specific language in mind, you can use that instead. Latin is just the most general.
+
+You can see the specifics once you install easyocr at line 97 for specific language pairs. 
+Also, installing polyglot requires guess and check, I installed a lot of new libraries based on errors and stackoverflow.
+
+requirements.txt has the virtual env pip freeze output.
+
+Sorry, no time, hope this helps anyway...
