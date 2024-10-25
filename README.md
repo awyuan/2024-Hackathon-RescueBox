@@ -28,17 +28,25 @@ When you're done, submit a PR back to this repository, so we can have everyone's
 python -m venv env
 ```
 
-This uses `venv` to create a new virutal envrionment for you.
+This uses `venv` to create a new virtual environment for you.
 
-### Activate the virtual envrionment
+### Activate the virtual environment
+
+For MacOS:
 
 ```bash
 source env/bin/activate
 ```
 
+For Windows:
+
+```pwsh
+.\env\Scripts\Activate.ps1
+```
+
 ### Installing dependencies
 
-Create a `requirements.txt` under your tool. For example, `tool-suite/deep-fake-classification/requirements.txt`
+Create a `requirements.txt` under your tool. For example, `tool-suite/audio-transcription/requirements.txt`
 
 Then, run
 
@@ -49,8 +57,12 @@ pip install -e ".[dev]"
 followed by
 
 ```bash
-pip install -r tool-suite/deep-fake-classification/requirements.txt
+pip install -r tool-suite/audio-transcription/requirements.txt
 ```
+
+### Running a sample task
+
+Read the [README](./tool-suite/audio-transcription/README.md) in the tool-suite/audio-transcription directory for instructions on how to run the sample task.
 
 ### Flask-ML
 
